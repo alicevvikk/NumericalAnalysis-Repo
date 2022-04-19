@@ -1,0 +1,31 @@
+"""
+		Naive Gaussian Elimination
+	
+			-- Based on elementary row operations Ax=B => Ux = B
+				-- U is upper triangular matrix
+			-- Two steps
+				1- Forward Elimination
+					-- Is the process to get Upper triangular matrix by applying
+						elementary row operations
+				2- Back Substituion
+					-- Gives us the solution in reverse order
+
+"""
+
+		LU Decomposition
+			-- LU Decomposition is another method to solve a set of simultaneous linear
+				equations.
+
+
+			-- A = LU
+			--[U] is the same as the coefficient matrix at the end of the forward
+				elimination step. Upper Triangular Matrix
+					[u11 u12 u13
+					 0   u22 u23
+					 0   0   u33]
+				
+			--[L] is obtained using the multipliers that were used in the forward 
+				elimination process. Lower Triangular Matrix
+					[1   0   0
+					 l21 1   0 
+					 l31 l32 1]

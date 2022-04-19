@@ -1,0 +1,84 @@
+"""
+	Newton-Raphson Method -- Tangent Method
+
+	x[i+1] = x[i] - (fx[i] / f'x[i])
+		
+		-- tan(@) = AB/AC -->
+			
+			-- f'(x[i]) = f(x[i]) / (x[i] - x[i+1]) -->
+				
+				-- x[i+1] = x[i] - (fx[i] / f'x[i])
+	 
+	
+	- we aim to find approximate values of the root iteratively.
+	- we must choose a inital iteration x0 
+
+	#STEP1
+		- We are given the equation fx = 0
+		- Evaluate f'x symbolically.
+	#STEP2 
+		- Use an initial guess(x0) of the root to estimate the new value of the root
+
+	#STEP3
+		- Find the absolute relative approximate error == ((xi+1 - xi) / xi+1)x100
+	#STEP4
+		- Compare the absolute relative approximate error with the pre-specified 
+		 error tolarence.
+
+	# ADVANTAGES
+		-- Converges fast, if it converges.
+		-- Requires only one guess
+
+	# DRAWBACKS
+		-- Divergence at inflection points
+		-- We may have a division by zero
+		-- Root Jumping
+"""
+
+"""	
+	Secant Method -- Derived from Newton-Raphson Method
+		
+		-- Newton's method fails to converge if f'x[i] = 0 so to correct this,
+		we can write a formula for the derivative.
+		
+		-- Approximate the derivative using forward difference(gives us approximate value of derivative) -->
+					f'x[i] = (fx[i] - fx[i-1]) / (x[i] - x[i-1])
+		
+	 	-- Secant Method then --> x[i+1] = x[i] - (fx[i] * ( (x[i] - x[i-1])) / 
+								      (fx[i] - fx[i-1)] )
+
+		#STEP 1
+			- Calculate the nex estimate of the root from two initial guesses
+			- Find the absolue relative approximate error
+
+		#STEP 2
+			- If error is greater than prespecified relative error tolerance
+			go back to step 1 else stop the algorithm
+
+		#ADVANTAGES
+			-- Converges fast, if it converges
+			-- Requires two guesses that do not need to bracket the root
+"""
+
+"""
+	REGULA-FALSI METHOD
+
+		xc = ((xa * fxb) - (xb*fxa) ) / (fxb - fxa)
+
+		#STEP1
+			-- Calculate the next estimate of the root from two initial guesses xa and xb			     -- Find the absolute relative approximate error.
+		#STEP2
+			-- if fxa * fxc < 0 then zero lies in [xa, xc] then, xa = xa and xb = xc
+			-- if fxa * fxc > 0 then zero lies in [xc, xb] then, xa = xc and xb = xb
+			-- if fxc = 0 then xc is the solution
+		#STEP3 
+			-- Compare the absolute relative approximate error with the pre-specified
+			error tolerance.
+			-- if error is > than the tolerance go back to step 1 else stop the algorithm
+		
+		#ADVANTAGES
+			-- Converges fast, if it converges
+		#DISADVANTAGES
+			-- Requires two guesses that need to bracket the root
+
+"""
